@@ -4,6 +4,17 @@ const consentForm = document.getElementById('consent-form')
 const modalText = document.getElementById('modal-text')
 const declineBtn = document.getElementById('decline-btn')
 const modalChoiceBtns = document.getElementById('modal-choice-btns')
+const modalPopupOne = document.getElementById("modal__popup--1")
+const modalPopupTwo = document.getElementById("modal__popup--2")
+const modalPopupThree = document.getElementById("modal__popup--3")
+const modalPopupFour = document.getElementById("modal__popup--4")
+const modalPopupAcceptOne = document.getElementById("modal__button--1--yes")
+const modalPopupdeclineOne = document.getElementById("modal__button--1--no")
+const modalPopupAcceptTwo = document.getElementById("modal__button--2--yes")
+const modalPopupdeclineTwo = document.getElementById("modal__button--2--no")
+
+
+
 
 setTimeout(function(){
     modal.style.display = 'inline'
@@ -13,9 +24,56 @@ modalCloseBtn.addEventListener('click', function(){
     modal.style.display = 'none'
 }) 
 
-declineBtn.addEventListener('mouseenter', function(){
-    modalChoiceBtns.classList.toggle('modal-btns-reverse')
+declineBtn.addEventListener('click', function(){
+    modalPopupOne.style.display = "block"
 }) 
+
+modalPopupAcceptOne.addEventListener('click', function(){
+
+    modalPopupOne.style.display = "none"
+    modalPopupTwo.style.display= "block"
+
+}) 
+
+modalPopupdeclineOne.addEventListener('click', function(){
+
+    modalPopupThree.style.display = "block"
+    modalPopupOne.style.display = "none"
+
+    setTimeout(function() {
+        modalPopupThree.style.display = "none"
+
+    }, 2500)
+}) 
+
+modalPopupdeclineTwo.addEventListener('click', function(){
+
+    modalPopupThree.style.display = "block"
+    modalPopupTwo.style.display= "none"
+
+    setTimeout(function() {
+        modalPopupThree.style.display = "none"
+
+    }, 2500)
+
+}) 
+
+modalPopupAcceptTwo.addEventListener('click', function(){
+
+    modalPopupFour.style.display = "block"
+    modalPopupTwo.style.display= "none"
+
+    setTimeout(function() {
+        modalPopupFour.style.display = "none"
+
+    }, 2500)
+
+
+
+}) 
+
+
+
 
 consentForm.addEventListener('submit', function(e){
     e.preventDefault()
